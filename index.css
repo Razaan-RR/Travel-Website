@@ -1,0 +1,468 @@
+body, html {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.loader{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    transition: all ease 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader h1{
+    font-size: 5vw;
+    color: transparent;
+    background: linear-gradient(to left, rgb(103, 240, 240),rgb(123, 123, 233));
+    -webkit-background-clip: text;
+    position: absolute;
+    opacity: 0;
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+}
+
+.loader h1:nth-child(2){
+    animation-delay: 2s;
+}
+
+.loader h1:nth-child(3){
+    animation-delay: 3s;
+}
+
+@keyframes loading {
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+#main{
+    /* background-color: black; */
+    position: relative;
+    z-index: 10;
+}
+
+.page1{
+    background-color: #EFE9E3;
+}
+
+.nav-bar{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EFE9E3;
+}
+
+.nav-bar1 img{
+    height: 70px;
+    width: 80px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.nav-bar2{
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+.nav-bar2 a{
+    border: 1.5px solid rgb(151, 148, 148);
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 5px;
+    border-radius: 60%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.nav-bar2 a::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    bottom: -100%;
+    left: 0;
+    border-radius: 50%;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: all ease 0.2s;
+    z-index: -1;
+}
+
+.nav-bar2 a:hover::after{
+    bottom:0;
+    transform: scaleY(1);
+}
+
+.nav-bar2 a:hover {
+    color: white;
+}
+
+.middle-portion{
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-align: justify;
+    border-bottom: solid rgb(75, 71, 71) 1px;
+    background-color: #EFE9E3;
+
+}
+
+.middle-left{
+    width: 70vh;
+    padding-left: 30px;
+    padding-bottom: 5px;
+}
+
+.middle-right{
+    font-size: 40px;
+    line-height: 5vw;
+    text-align: right;
+    padding-right: 30px;
+    padding-bottom: 50px;
+}
+
+video{
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: #EFE9E3;
+}
+
+.page2{
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    position: relative;
+    background-color: #EFE9E3;
+}
+
+.scrolling-text{
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.scrolling-text::-webkit-scrollbar{
+    display: none;
+}
+
+.points{
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: move;
+    animation-duration: 8s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+
+.scrolling-text h2{
+    font-size: 3vw;
+    display: inline-block;
+}
+
+.bullet{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: aqua;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+@keyframes move {
+    from{
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%); 
+    }
+}
+
+.page2-bottom-left{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 200px;
+    padding-top: 20px 20px;
+    position: relative;
+    z-index: 9;
+}
+
+.page2-bottom-left h3{
+    padding-left: 30px;
+    font-size: 30px;
+    width: 60%;
+}
+
+.page2-bottom-right img{
+    width: 200px;
+    height: 150px;
+    border-radius: 10%;
+}
+
+.page2-bottom-right{
+    width: 20%;  
+    margin-right: 20px;
+}
+
+.animation{
+    background: linear-gradient(to bottom right, rgb(0, 238, 255), rgb(72, 97, 222));
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    filter: blur(30px);
+    animation-name: move-circle;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes move-circle{
+    from{
+        filter: blur(30px);
+        transform: translate(15%, -15%) skew(0);
+    }
+    to{
+        filter: blur(30px);
+        transform: translate(-10%, 10%) skew(-15deg); 
+    }
+}
+
+.page3{
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    background-color: #EFE9E3;
+}
+
+.element{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    border-bottom: 1px solid rgb(165, 161, 161);
+    position: relative;
+    overflow: hidden;
+}
+
+.element h1{
+    position: relative;
+    z-index: 9;
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(200, 243, 228);
+    left: 0;
+    top: -100%;
+    transition: all ease 0.2s;
+}
+
+.element:hover .overlay{
+    top: 0;
+}
+
+.hover-image{
+    height: 55%;
+    width: 20%;
+    position: fixed;
+    z-index: 11;
+    left: 40%;
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+}
+
+.page4 {
+    width: 100%;
+    height: 50vh;
+    background-color: #EFE9E3;
+    padding: 8vw 2vw;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    padding-left: 20px;
+    width: 30%;
+    border-left: 1px solid rgb(132, 127, 127);
+}
+
+.swiper-slide img {
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+}
+
+.slide-content {
+    padding-top: 10px;
+}
+
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+
+.page5{
+    width: 100%;
+    height: 100vh;
+}
+
+.page5 h2{
+    color: white;
+}
+
+.footer{
+    position: fixed;
+    height: 100%;
+    width:100%;
+    background-color: black;
+    color: white;
+    z-index: 9;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.footer h1{
+    font-size: 7vw;
+}
+
+@media (max-width: 600px) {
+    body, html {
+        font-size: 14px; /* Adjust the font size for better readability */
+    }
+
+    .nav-bar {
+        height: auto;
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center;
+    }
+
+    .nav-bar1 img {
+        height: 50px; /* Reduce logo size */
+        width: auto; /* Let the width adjust automatically */
+        padding: 10px 0; /* Add some vertical padding */
+    }
+
+    .nav-bar2 {
+        margin-top: 10px; /* Add space between logo and navigation links */
+    }
+
+    .nav-bar2 a {
+        font-size: 14px; /* Reduce font size of navigation links */
+        padding: 3px 8px; /* Adjust padding */
+    }
+
+    .middle-portion {
+        flex-direction: column; /* Stack middle content vertically */
+        align-items: center; /* Center align middle content */
+        text-align: center; /* Center align text */
+    }
+
+    .middle-left {
+        width: auto; /* Allow text to wrap */
+        padding: 0 10px; /* Add some horizontal padding */
+    }
+
+    .middle-right {
+        font-size: 24px; /* Reduce font size */
+        line-height: 1.2; /* Adjust line height */
+        padding: 10px 0; /* Adjust vertical padding */
+    }
+
+    video {
+        border-radius: 10px; /* Reduce border radius of video */
+    }
+
+    .page2-bottom-left {
+        flex-direction: column; /* Stack content vertically */
+        gap: 20px; /* Add space between elements */
+        padding: 20px; /* Add padding */
+    }
+
+    .page2-bottom-left h3 {
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .page2-bottom-right img {
+        width: 100%; /* Make image fill its container */
+        height: auto; /* Let the height adjust automatically */
+    }
+
+    .animation {
+        display: none; /* Hide animation on smaller screens */
+    }
+
+    .element {
+        height: 80px; /* Reduce height */
+        padding-left: 20px; /* Adjust padding */
+    }
+
+    .element h1 {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .swiper-slide {
+        width: 100%; /* Make slides fill their container */
+        padding: 0; /* Remove padding */
+        border-left: none; /* Remove left border */
+        border-bottom: 1px solid rgb(132, 127, 127); /* Add bottom border */
+    }
+
+    .footer {
+        height: auto; /* Allow footer height to adjust */
+    }
+
+    .footer h1 {
+        font-size: 5vw; /* Reduce font size */
+    }
+
+    .footer-div {
+        display: none; /* Hide the red line */
+    }
+
+}
